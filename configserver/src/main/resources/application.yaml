@@ -2,13 +2,19 @@ spring:
   application:
     name: "configserver"
   profiles:
-    active: native
+    # active: native # Use this to read from the local filesystem or classpath
+    active: git # Use this to read from a Git repository (best practice)
   cloud:
     config:
       server:
-        native:
-          #search-locations: "classpath:/config"
-          search-locations: "file:///C://Users//Gerardo//Documents//Web-Development//Java//config"
-
+        # native:
+          # search-locations: "classpath:/config"
+          # search-locations: "file:///C://Users//Gerardo//Documents//Web-Development//Java//config"
+        git:
+          uri: "https://github.com/thegera4/spring-cloud-server-config-example.git"
+          default-label: main # branch name
+          timeout: 5 # seconds
+          clone-on-start: true # clone the repository on startup
+          force-pull: true # force a pull on startup
 server:
   port: 8071
