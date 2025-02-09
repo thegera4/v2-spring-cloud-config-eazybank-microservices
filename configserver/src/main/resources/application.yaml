@@ -1,3 +1,5 @@
+server:
+  port: 8071
 spring:
   application:
     name: "configserver"
@@ -16,5 +18,5 @@ spring:
           timeout: 5 # seconds
           clone-on-start: true # clone the repository on startup
           force-pull: true # force a pull on startup
-server:
-  port: 8071
+encrypt:
+  key: "H/G3dLgzGKU9YzgmSkwISqIbTRAN1AAql7VQf2iE3Lw2PZFHOvgXubzB/wpZGGX3"
