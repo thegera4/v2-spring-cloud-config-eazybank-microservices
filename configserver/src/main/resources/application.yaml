@@ -18,5 +18,24 @@ spring:
           timeout: 5 # seconds
           clone-on-start: true # clone the repository on startup
           force-pull: true # force a pull on startup
-encrypt:
+  rabbitmq: # RabbitMQ configuration
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
+encrypt: # Enable encryption
   key: "H/G3dLgzGKU9YzgmSkwISqIbTRAN1AAql7VQf2iE3Lw2PZFHOvgXubzB/wpZGGX3"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # Expose all endpoints (required for automatic refresh of properties at runtime)
+  health: # Enable health checks
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint: # Enable the /actuator/health endpoint
+    health:
+      probes:
+        enabled: true
